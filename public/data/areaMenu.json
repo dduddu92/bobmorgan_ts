@@ -1,0 +1,28 @@
+{
+  "region_list": [
+    {
+      "region_id": 1,
+      "region_name": "제주시"
+    },
+    {
+      "region_id": 2,
+      "region_name": "애월_한림"
+    },
+    {
+      "region_id": 3,
+      "region_name": "구좌_조천"
+    },
+    {
+      "region_id": 4,
+      "region_name": "성산_표선"
+    },
+    {
+      "region_id": 5,
+      "region_name": "서귀포"
+    },
+    {
+      "region_id": 6,
+      "region_name": "대정_안덕_한경"
+    }
+  ]
+}

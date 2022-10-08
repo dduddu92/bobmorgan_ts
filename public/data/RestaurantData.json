@@ -1,0 +1,175 @@
+{
+  "results": [
+    {
+      "place_id": 3,
+      "place_name": "라스또르따스",
+      "place_opening_hours": "11:00 - 16:00 (금, 토요일 : 11:00 - 21:00), 매 주 월요일, 화요일 휴무",
+      "place_maximum_number_of_subscriber": 8,
+      "place_able_to_reserve": true,
+      "place_closed_temporarily": false,
+      "place_category": "양식",
+      "place_region": "제주시",
+      "place_image": "https://mustgo.carmore.kr/data/file/matzip/977797506_9zUXV0ch_6b6603759492e960b9094f29b09bf2efe6994b95.jpeg",
+      "menus": [
+        {
+          "id": 7,
+          "name": "까르니따쓰(2따꼬)",
+          "price": "9000",
+          "is_signature": true
+        },
+        {
+          "id": 8,
+          "name": "뻬스까또(2따꼬)",
+          "price": "10000",
+          "is_signature": false
+        },
+        {
+          "id": 9,
+          "name": "뜨리빠(2따꼬)",
+          "price": "11000",
+          "is_signature": false
+        }
+      ],
+      "menu_avg_price": "10000.0000",
+      "menu_min_price": "9000",
+      "menu_max_price": "11000"
+    },
+    {
+      "place_id": 4,
+      "place_name": "도토리키친",
+      "place_opening_hours": "11:00 - 17:00, 연중무휴",
+      "place_maximum_number_of_subscriber": 10,
+      "place_able_to_reserve": true,
+      "place_closed_temporarily": false,
+      "place_category": "일식",
+      "place_region": "제주시",
+      "place_image": "https://mustgo.carmore.kr/data/file/matzip/977797506_TpH1m4hr_95ea4aa6f15429d3353da88f454b3b6f07ebbc7b.jpeg",
+      "menus": [
+        {
+          "id": 10,
+          "name": "청귤소바",
+          "price": "9500",
+          "is_signature": true
+        },
+        {
+          "id": 11,
+          "name": "청귤소바+톳유부초밥",
+          "price": "14000",
+          "is_signature": true
+        },
+        {
+          "id": 12,
+          "name": "냉소바",
+          "price": "8500",
+          "is_signature": false
+        }
+      ],
+      "menu_avg_price": "10666.6667",
+      "menu_min_price": "8500",
+      "menu_max_price": "14000"
+    },
+    {
+      "place_id": 5,
+      "place_name": "도토리키친",
+      "place_opening_hours": "11:00 - 17:00, 연중무휴",
+      "place_maximum_number_of_subscriber": 10,
+      "place_able_to_reserve": true,
+      "place_closed_temporarily": false,
+      "place_category": "일식",
+      "place_region": "제주시",
+      "place_image": "https://mustgo.carmore.kr/data/file/matzip/977797506_TpH1m4hr_95ea4aa6f15429d3353da88f454b3b6f07ebbc7b.jpeg",
+      "menus": [
+        {
+          "id": 10,
+          "name": "청귤소바",
+          "price": "9500",
+          "is_signature": true
+        },
+        {
+          "id": 11,
+          "name": "청귤소바+톳유부초밥",
+          "price": "14000",
+          "is_signature": true
+        },
+        {
+          "id": 12,
+          "name": "냉소바",
+          "price": "8500",
+          "is_signature": false
+        }
+      ],
+      "menu_avg_price": "10666.6667",
+      "menu_min_price": "8500",
+      "menu_max_price": "14000"
+    },
+    {
+      "place_id": 6,
+      "place_name": "도토리키친",
+      "place_opening_hours": "11:00 - 17:00, 연중무휴",
+      "place_maximum_number_of_subscriber": 10,
+      "place_able_to_reserve": true,
+      "place_closed_temporarily": false,
+      "place_category": "일식",
+      "place_region": "제주시",
+      "place_image": "https://mustgo.carmore.kr/data/file/matzip/977797506_TpH1m4hr_95ea4aa6f15429d3353da88f454b3b6f07ebbc7b.jpeg",
+      "menus": [
+        {
+          "id": 10,
+          "name": "청귤소바",
+          "price": "9500",
+          "is_signature": true
+        },
+        {
+          "id": 11,
+          "name": "청귤소바+톳유부초밥",
+          "price": "14000",
+          "is_signature": true
+        },
+        {
+          "id": 12,
+          "name": "냉소바",
+          "price": "8500",
+          "is_signature": false
+        }
+      ],
+      "menu_avg_price": "10666.6667",
+      "menu_min_price": "8500",
+      "menu_max_price": "14000"
+    },
+    {
+      "place_id": 7,
+      "place_name": "도토리키친",
+      "place_opening_hours": "11:00 - 17:00, 연중무휴",
+      "place_maximum_number_of_subscriber": 10,
+      "place_able_to_reserve": true,
+      "place_closed_temporarily": false,
+      "place_category": "일식",
+      "place_region": "제주시",
+      "place_image": "https://mustgo.carmore.kr/data/file/matzip/977797506_TpH1m4hr_95ea4aa6f15429d3353da88f454b3b6f07ebbc7b.jpeg",
+      "menus": [
+        {
+          "id": 10,
+          "name": "청귤소바",
+          "price": "9500",
+          "is_signature": true
+        },
+        {
+          "id": 11,
+          "name": "청귤소바+톳유부초밥",
+          "price": "14000",
+          "is_signature": true
+        },
+        {
+          "id": 12,
+          "name": "냉소바",
+          "price": "8500",
+          "is_signature": false
+        }
+      ],
+      "menu_avg_price": "10666.6667",
+      "menu_min_price": "8500",
+      "menu_max_price": "14000"
+    }
+  ],
+  "date": "2022-07-12"
+}

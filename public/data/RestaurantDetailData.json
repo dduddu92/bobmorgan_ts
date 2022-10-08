@@ -1,0 +1,107 @@
+{
+  "results": [
+    {
+      "place_id": 1,
+      "place_name": "토투가커피",
+      "place_opening_hours": "10:00 - 18:00, 연중무휴",
+      "place_maximum_number_of_subscriber": 0,
+      "place_able_to_reserve": true,
+      "place_closed_temporarily": false,
+      "place_region": "제주시",
+      "place_image": [
+        "https://mustgo.carmore.kr/data/file/matzip/977797506_dMG6qOYk_bbb37afa85c4c5bf67abe3e40aea39f356c852bf.jpeg"
+      ],
+      "menu": [
+        { "name": "까눌레", "price": "3000" },
+        { "name": "까눌레", "price": "3000" },
+        { "name": "까눌레", "price": "3000" }
+      ],
+
+      "menu_avg_price": "10000.0000",
+      "menu_min_price": "3000",
+      "menu_max_price": "6000"
+    },
+    {
+      "place_id": 3,
+      "place_name": "라스또르따스",
+      "place_opening_hours": "11:00 - 16:00 (금, 토요일 : 11:00 - 21:00), 매 주 월요일, 화요일 휴무",
+      "place_maximum_number_of_subscriber": 8,
+      "place_able_to_reserve": true,
+      "place_closed_temporarily": false,
+      "place_region": "제주시",
+      "place_image": [
+        "https://mustgo.carmore.kr/data/file/matzip/977797506_9zUXV0ch_6b6603759492e960b9094f29b09bf2efe6994b95.jpeg"
+      ],
+      "menu": [
+        { "name": "까눌레", "price": "3000" },
+        { "name": "까눌레", "price": "3000" },
+        { "name": "까눌레", "price": "3000" }
+      ],
+      "menu_avg_price": "20000.0000",
+      "menu_min_price": "9000",
+      "menu_max_price": "11000"
+    },
+    {
+      "place_id": 4,
+      "place_name": "라스또르따스",
+      "place_opening_hours": "11:00 - 16:00 (금, 토요일 : 11:00 - 21:00), 매 주 월요일, 화요일 휴무",
+      "place_maximum_number_of_subscriber": 8,
+      "place_able_to_reserve": false,
+      "place_closed_temporarily": false,
+      "place_region": "애월 · 한림",
+      "place_image": [
+        "https://mustgo.carmore.kr/data/file/matzip/977797506_9zUXV0ch_6b6603759492e960b9094f29b09bf2efe6994b95.jpeg"
+      ],
+      "menu": [
+        { "name": "까눌레", "price": "3000" },
+        { "name": "까눌레", "price": "3000" },
+        { "name": "까눌레", "price": "3000" }
+      ],
+      "menu_avg_price": "30000.0000",
+      "menu_min_price": "9000",
+      "menu_max_price": "11000"
+    },
+    {
+      "place_id": 5,
+      "place_name": "라스또르따스",
+      "place_opening_hours": "11:00 - 16:00 (금, 토요일 : 11:00 - 21:00), 매 주 월요일, 화요일 휴무",
+      "place_maximum_number_of_subscriber": 8,
+      "place_able_to_reserve": true,
+      "place_closed_temporarily": false,
+      "place_region": "제주시",
+      "place_image": [
+        "https://mustgo.carmore.kr/data/file/matzip/977797506_9zUXV0ch_6b6603759492e960b9094f29b09bf2efe6994b95.jpeg"
+      ],
+
+      "menu": [
+        { "name": "까눌레", "price": "3000" },
+        { "name": "까눌레", "price": "3000" },
+        { "name": "까눌레", "price": "3000" }
+      ],
+      "menu_avg_price": "40000.0000",
+      "menu_min_price": "9000",
+      "menu_max_price": "11000"
+    },
+    {
+      "place_id": 6,
+      "place_name": "라스또르따스",
+      "place_opening_hours": "11:00 - 16:00 (금, 토요일 : 11:00 - 21:00), 매 주 월요일, 화요일 휴무",
+      "place_maximum_number_of_subscriber": 8,
+      "place_able_to_reserve": true,
+      "place_closed_temporarily": false,
+      "place_region": "제주시",
+      "place_image": [
+        "https://mustgo.carmore.kr/data/file/matzip/977797506_9zUXV0ch_6b6603759492e960b9094f29b09bf2efe6994b95.jpeg"
+      ],
+      "menu": [
+        { "name": "까눌레", "price": "3000" },
+        { "name": "까눌레", "price": "3000" },
+        { "name": "까눌레", "price": "3000" }
+      ],
+      "menu_avg_price": "50000.0000",
+      "menu_min_price": "9000",
+      "menu_max_price": "11000"
+    }
+  ],
+  "date": "2022-07-13"
+}
