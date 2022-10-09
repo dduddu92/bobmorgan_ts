@@ -16,12 +16,6 @@ const theme = {
   keyColor: '#FFAD1D',
   pointColor: '#F69D3E',
   red: '#e3352c',
-
-  flexMixin: (align = 'center', justify = 'center') => `
-  display:flex;
-  align-items:${align};
-  justify-content:${justify};
-  `,
 };
 
 export default theme;

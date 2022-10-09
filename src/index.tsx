@@ -6,7 +6,10 @@ import theme from './styles/theme';
 import { RecoilRoot } from 'recoil';
 import Router from './Router';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement
+);
+
 root.render(
   <ThemeProvider theme={theme}>
     <GlobalStyle />

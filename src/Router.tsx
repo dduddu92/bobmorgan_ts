@@ -7,7 +7,7 @@ import Detail from './pages/Detail/Detail';
 import KakaoLogin from './components/SocialLogin/KakaoLogin';
 import Footer from './components/Footer/Footer';
 
-const Router = props => {
+const Router = () => {
   return (
     <BrowserRouter>
       <Navigation />

@@ -10,12 +10,10 @@ import styled from 'styled-components';
 
 const KakaoLogin = () => {
   const location = useLocation();
-
   const code = qs.parse(location.search, { ignoreQueryPrefix: true }).code;
-
   const navigate = useNavigate();
-
   const [token, setToken] = useRecoilState(tokenState);
+  const userToken = localStorage.getItem('morganToken');
 
   const postKaKaoToken = async () => {
     const payload = qs.stringify({
@@ -41,7 +39,7 @@ const KakaoLogin = () => {
         .then(result => {
           if (result.access_token) {
             localStorage.setItem('morganToken', result.access_token);
-            setToken(localStorage.getItem('morganToken'));
+            setToken(userToken);
             navigate('/');
           }
         });

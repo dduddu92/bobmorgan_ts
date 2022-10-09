@@ -4,6 +4,7 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 import { tokenState } from '../SocialLogin/GlobalState';
 import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
+
 const Navigation = () => {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
 
@@ -21,7 +22,7 @@ const Navigation = () => {
       <Nav>
         <NavInner>
           <LogoBtn to="/">
-            <LogoImg src="/images/bobMorgan-logo.png" alt="" />
+            <LogoImg src="/images/bobMorgan-logo.png" alt="밥모건 메인 로고" />
           </LogoBtn>
           <GnbMenus>
             {MENU_LIST.map(({ id, name, link }) => {
