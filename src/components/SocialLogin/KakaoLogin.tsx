@@ -1,15 +1,11 @@
 import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import {
-  REST_API_KEY,
-  REDIRECT_URI,
-  CLIENT_SECRET,
-} from '../../components/SocialLogin/OAuth';
+import { REST_API_KEY, REDIRECT_URI, CLIENT_SECRET } from './OAuth';
 import { API } from '../../config';
 import axios from 'axios';
 import qs from 'qs';
 import { useRecoilState } from 'recoil';
-import { tokenState } from '../SocialLogin/GlobalState';
+import { tokenState } from './GlobalState';
 import styled from 'styled-components';
 
 const KakaoLogin = () => {

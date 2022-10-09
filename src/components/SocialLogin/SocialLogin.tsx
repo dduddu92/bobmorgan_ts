@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { REST_API_KEY, REDIRECT_URI } from '../../components/SocialLogin/OAuth';
+import { REST_API_KEY, REDIRECT_URI } from './OAuth';
 import styled from 'styled-components';
 
 const SocialLogin = ({ isLoginOpen, setIsLoginOpen }) => {
