@@ -1,4 +1,4 @@
-const BASE_URL = 'http://3.36.70.103:8080';
+const BASE_URL = 'http://192.168.0.12:8080';
 
 export const API = {
   sendKakaoToken: `${BASE_URL}/users/signin/kakao`,

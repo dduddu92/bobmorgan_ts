@@ -3,48 +3,36 @@ import styled from 'styled-components';
 export const ReservationWrapper = styled.div`
   ${({ theme }) => theme.flexMixin()};
   margin: 40px 0;
-  position: sticky;
-  z-index: 1022;
-  top: 120px;
-  left: 120px;
 `;
 
 export const Reservation = styled.div`
-  height: 80px;
   width: 400px;
+  height: 80px;
   background-color: #f8f8f8;
   border-radius: 10px;
   box-shadow: 0 4px 4px 0 rgba(95, 95, 95, 0.08),
     0 4px 4px 0 rgba(95, 95, 95, 0.01);
-  z-index: 1;
-`;
-
-export const ReservationTitle = styled.h3`
-  padding-bottom: 10px;
-  color: ${props => props.theme.pointColor};
-  border-bottom: 1px solid ${props => props.theme.grey};
-  font-weight: 600;
-  font-size: 20px;
 `;
 
 export const ResevationContents = styled.div`
-  ${({ theme }) => theme.flexMixin('', 'space-around')};
-  padding-top: 20px;
+  ${({ theme }) => theme.flexMixin('align', 'space-around')};
+  padding: 20px 0;
 `;
 
 export const ResevationInfo = styled.div``;
 export const Title = styled.h4`
+  width: 150px;
   padding-bottom: 10px;
-  font-size: 14p;
   color: ${props => props.theme.lightGrey};
+  font-size: 14px;
   text-align: center;
 `;
 
 export const Info = styled.div`
-  ${({ theme }) => theme.flexMixin('center', '')};
-  font-size: 18px;
+  ${({ theme }) => theme.flexMixin('center', 'center')};
   height: 30px;
   color: ${props => props.theme.text};
+  font-size: 18px;
   text-align: center;
   .ant-picker {
     &:hover {

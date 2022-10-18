@@ -5,62 +5,122 @@ import Tab from 'react-bootstrap/Tab';
 import * as S from './AreaModal.styled';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+declare global {
+  interface Window {
+    kakao: any;
+  }
+}
+
 const AreaModal = ({
   setIsOpen,
   setSearchAreaName,
   areaMenu,
   setSearchAreaId,
+}: {
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setSearchAreaName: React.Dispatch<React.SetStateAction<string>>;
+  areaMenu: { region_id: number; region_name: string }[];
+  setSearchAreaId: React.Dispatch<React.SetStateAction<number | undefined>>;
 }) => {
-  const [key, setKey] = useState('home');
-  const mapId = useRef();
+  const [key, setKey] = useState<string | null>('home');
+  const mapId = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     let options = {
-      center: new kakao.maps.LatLng(33.50431022611561, 126.49432520073913),
+      center: new window.kakao.maps.LatLng(
+        33.50431022611561,
+        126.49432520073913
+      ),
       level: 4,
     };
-    console.log(kakao.maps.services);
-    let map = new kakao.maps.Map(mapId.current, options);
-    let geocoder = new kakao.maps.services.Geocoder();
+
+    let map = new window.kakao.maps.Map(mapId.current, options);
+    let geocoder = new window.kakao.maps.services.Geocoder();
 
     let imageSrc = '/images/bobMorgan-map-pick2.png';
-    let imageSize = new kakao.maps.Size(36, 50);
-    let imageOption = { offset: new kakao.maps.Point(15, 50) };
+    let imageSize = new window.kakao.maps.Size(36, 50);
+    let imageOption = { offset: new window.kakao.maps.Point(15, 50) };
 
-    let markerImage = new kakao.maps.MarkerImage(
+    let markerImage = new window.kakao.maps.MarkerImage(
       imageSrc,
       imageSize,
       imageOption
     );
 
-    let marker = new kakao.maps.Marker({
+    let marker = new window.kakao.maps.Marker({
       image: markerImage,
     });
 
-    searchAddrFromCoords(map.getCenter());
-
-    kakao.maps.event.addListener(map, 'click', function (mouseEvent) {
-      searchDetailAddrFromCoords(mouseEvent.latLng, function (result, status) {
-        if (status === kakao.maps.services.Status.OK) {
-          let detailAddr = result[0].address.address_name;
-
-          let message = `<input type="text" value="${detailAddr}" />`;
-
-          let resultDiv = document.getElementById('centerAddr');
-          resultDiv.innerHTML = message;
-
-          marker.setPosition(mouseEvent.latLng);
-          marker.setMap(map);
-        }
-      });
-    });
-
-    function searchAddrFromCoords(coords, callback) {
-      geocoder.coord2RegionCode(coords.getLng(), coords.getLat(), callback);
+    interface EventProps {
+      latLng: {
+        La: number;
+        Ma: number;
+      };
+      point: {
+        x: number;
+        y: number;
+      };
     }
 
-    function searchDetailAddrFromCoords(coords, callback) {
-      geocoder.coord2Address(coords.getLng(), coords.getLat(), callback);
+    interface AddressRoot {
+      road_address: RoadAddress;
+      address: Address;
+    }
+
+    interface RoadAddress {
+      address_name: string;
+      region_1depth_name: string;
+      region_2depth_name: string;
+      region_3depth_name: string;
+      road_name: string;
+      underground_yn: string;
+      main_building_no: string;
+      sub_building_no: string;
+      building_name: string;
+      zone_no: string;
+    }
+
+    interface Address {
+      address_name: string;
+      region_1depth_name: string;
+      region_2depth_name: string;
+      region_3depth_name: string;
+      mountain_yn: string;
+      main_address_no: string;
+      sub_address_no: string;
+      zip_code: string;
+    }
+
+    window.kakao.maps.event.addListener(
+      map,
+      'click',
+      function (mouseEvent: EventProps) {
+        let coord = new window.kakao.maps.LatLng(
+          mouseEvent.latLng.La,
+          mouseEvent.latLng.Ma
+        );
+        searchDetailAddrFromCoords(
+          coord,
+          function (result: AddressRoot[], status: string) {
+            if (status === 'OK') {
+              let detailAddr = result[0].address.address_name;
+              let message = `<input type="text" value="${detailAddr}" />`;
+              let resultDiv: HTMLElement | null =
+                document.getElementById('centerAddr');
+              resultDiv!.innerHTML = message;
+              marker.setPosition(mouseEvent.latLng);
+              marker.setMap(map);
+            }
+          }
+        );
+      }
+    );
+
+    function searchDetailAddrFromCoords(
+      coord: any,
+      callback: CallableFunction
+    ) {
+      geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
     }
   }, [key, mapId]);
 
@@ -74,29 +134,31 @@ const AreaModal = ({
             <Tab eventKey="home" title="제주">
               <div>
                 <S.AreaMenu>
-                  {areaMenu.map(location => {
-                    return (
-                      <S.AreaMenuLi
-                        key={location.region_id}
-                        onClick={() => {
-                          setSearchAreaName(
-                            location.region_name.replaceAll('_', ' ・ ')
-                          );
-                          setSearchAreaId(location.region_id);
-                          setIsOpen(false);
-                        }}
-                      >
-                        {location.region_name.replaceAll('_', ' ・ ')}
-                      </S.AreaMenuLi>
-                    );
-                  })}
+                  {areaMenu.map(
+                    ({
+                      region_id,
+                      region_name,
+                    }: {
+                      region_id: number;
+                      region_name: string;
+                    }) => {
+                      return (
+                        <S.AreaMenuLi
+                          key={region_id}
+                          onClick={() => {
+                            setSearchAreaName(
+                              region_name.replaceAll('_', ' ・ ')
+                            );
+                            setSearchAreaId(region_id);
+                            setIsOpen(false);
+                          }}
+                        >
+                          {region_name.replaceAll('_', ' ・ ')}
+                        </S.AreaMenuLi>
+                      );
+                    }
+                  )}
                 </S.AreaMenu>
-                <S.AreaMenuSearchBox>
-                  <S.AreaMenuSearch
-                    type="text"
-                    placeholder="지역이나 역, 건물 이름으로 검색"
-                  />
-                </S.AreaMenuSearchBox>
               </div>
             </Tab>
             <Tab eventKey="mapZone" title="지도">

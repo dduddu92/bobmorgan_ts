@@ -242,6 +242,7 @@ const SearchList = () => {
     </div>
   );
 };
+
 const MoveTopButton = styled.img`
   position: fixed;
   bottom: 200px;

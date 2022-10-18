@@ -1,22 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import AreaModal from './AreaModal/AreaModal';
+import type { DatePickerProps } from 'antd';
 import { DatePicker, Space } from 'antd';
 import moment from 'moment';
 import 'moment/locale/ko';
 import locale from 'antd/es/date-picker/locale/ko_KR';
 import * as S from './Main.styled';
 import 'antd/dist/antd.min.css';
+import axios from 'axios';
 
 const DATE_FORMAT = 'YYYY년 MM월 DD일';
 
+interface AreaMenu {
+  region_id: number;
+  region_name: string;
+}
+
 const Main = () => {
-  const [areaMenu, setAreaMenu] = useState({});
+  const [areaMenu, setAreaMenu] = useState<AreaMenu[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const [searchAreaName, setSearchAreaName] = useState('');
-  const [searchAreaId, setSearchAreaId] = useState();
-  const [searchDate, setSearchDate] = useState();
+  const [searchAreaId, setSearchAreaId] = useState<number>();
+  const [searchDate, setSearchDate] = useState('');
 
-  const dateOnChange = (date, dateString) => {
+  const onChange: DatePickerProps['onChange'] = (date, dateString) => {
     let regex = /[^0-9]/gi;
     let regexBlank = /\s/g;
     let deleteKo = dateString
@@ -26,17 +33,15 @@ const Main = () => {
     return setSearchDate(deleteKo);
   };
 
-  const disabledDate = current => {
+  const disabledDate: DatePickerProps['disabledDate'] = current => {
     let customDate = moment().format('YYYY-MM-DD');
     return current && current < moment(customDate, 'YYYY-MM-DD');
   };
 
   useEffect(() => {
-    fetch('/data/areaMenu.json', {})
-      .then(res => res.json())
-      .then(data => {
-        setAreaMenu(data.region_list);
-      });
+    axios.get('/data/areaMenu.json').then(data => {
+      setAreaMenu(data.data.region_list);
+    });
   }, []);
 
   const settings = {
@@ -54,10 +59,10 @@ const Main = () => {
     <>
       <S.MainSlider>
         <S.StyledSlider {...settings}>
-          {SLIDER_ITEMS.map(item => {
+          {SLIDER_ITEMS.map(({ id, url }) => {
             return (
-              <S.SliderImgBox key={item.id}>
-                <S.SliderImg src={item.url} alt="비주얼 이미지" />
+              <S.SliderImgBox key={id}>
+                <S.SliderImg src={url} alt="비주얼 이미지" />
               </S.SliderImgBox>
             );
           })}
@@ -67,13 +72,13 @@ const Main = () => {
         <S.SearchInner>
           <S.SearchBox>
             <S.SearchNav>
-              <S.SearchTitle>제주맛집</S.SearchTitle>
+              <S.SearchTitle>제주 맛집</S.SearchTitle>
             </S.SearchNav>
             <S.SearchItems>
               <S.SearchItem>
                 <S.SearchTit>지역</S.SearchTit>
                 <S.SearchArea onClick={() => setIsOpen(true)}>
-                  {searchAreaName === '' ? '제주 검색' : ''}
+                  {searchAreaName === '' && '지역 선택'}
                   {searchAreaName}
                 </S.SearchArea>
               </S.SearchItem>
@@ -82,7 +87,7 @@ const Main = () => {
                 <S.SearchData>
                   <Space direction="vertical">
                     <DatePicker
-                      onChange={dateOnChange}
+                      onChange={onChange}
                       bordered={false}
                       disabledDate={disabledDate}
                       format={DATE_FORMAT}
@@ -100,7 +105,7 @@ const Main = () => {
                 : `/searchlist?region=${searchAreaId}&date=${searchDate}`
             }
           >
-            <S.SearchIcon src="/images/icon_search.svg" alt="" />
+            <S.SearchIcon src="/images/icon_search.svg" alt="돋보기 아이콘" />
             <S.SearchBtTXt>맛집 검색</S.SearchBtTXt>
           </S.SearchBtn>
         </S.SearchInner>

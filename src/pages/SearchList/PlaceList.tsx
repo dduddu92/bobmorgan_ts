@@ -2,7 +2,23 @@ import React from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
-const PlaceList = ({ place }) => {
+interface IPlace {
+  place: {
+    place_id: number;
+    place_name: string;
+    place_opening_hours: string;
+    place_maximum_number_of_subscriber: number;
+    place_able_to_reserve: boolean;
+    place_closed_temporarily: boolean;
+    place_category: string;
+    place_region: string;
+    place_image: string;
+    menus: { id: number; name: string; price: string; is_signature: boolean }[];
+    menu_avg_price: string;
+  };
+}
+
+const PlaceList = ({ place }: IPlace) => {
   const {
     place_image,
     place_name,
@@ -40,22 +56,22 @@ const PlaceList = ({ place }) => {
           </div>
         </PlaceData>
         <Menus>
-          {menus.map(menu => {
+          {menus.map(({ id, name, price, is_signature }) => {
             return (
-              <Menu key={menu.id}>
-                {menu.is_signature === true ? (
-                  <div>🐥 {menu.name}</div>
+              <Menu key={id}>
+                {is_signature === true ? (
+                  <div>🐥 {name}</div>
                 ) : (
-                  <div>🐣 {menu.name}</div>
+                  <div>🐣 {name}</div>
                 )}
-                <div>{Number(menu.price).toLocaleString()}원</div>
+                <div>{Number(price).toLocaleString()}원</div>
               </Menu>
             );
           })}
 
           <Menu>
             <div> 메뉴 평균 가격 </div>
-            <div> {Math.round(Number(menu_avg_price)).toLocaleString()}원</div>
+            <div> {Math.round(Number(menu_avg_price))}원</div>
           </Menu>
         </Menus>
       </PlaceDataWrap>

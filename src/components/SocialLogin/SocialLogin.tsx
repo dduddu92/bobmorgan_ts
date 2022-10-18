@@ -1,30 +1,34 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { REST_API_KEY, REDIRECT_URI } from './OAuth';
+import { KAKAO_AUTH_URL } from './OAuth';
 import styled from 'styled-components';
 
-const SocialLogin = ({ isLoginOpen, setIsLoginOpen }) => {
+const SocialLogin = ({
+  isLoginOpen,
+  setIsLoginOpen,
+}: {
+  isLoginOpen: boolean;
+  setIsLoginOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const [changeAnimation, setChangeAnimation] = useState(true);
 
-  const modalRef = useRef();
+  const modalRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     document.addEventListener('mousedown', clickModalOutside);
-
-    return () => {
-      document.removeEventListener('mousedown', clickModalOutside);
-    };
   });
 
-  const clickModalOutside = event => {
-    if (isLoginOpen && !modalRef.current.contains(event.target)) {
+  const clickModalOutside = (e: MouseEvent) => {
+    if (
+      modalRef.current !== null &&
+      isLoginOpen &&
+      !modalRef.current.contains(e.target as Node)
+    ) {
       setChangeAnimation(false);
       setTimeout(() => {
         setIsLoginOpen(!isLoginOpen);
       }, 300);
     }
   };
-
-  const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 
   const handleLoginForKakao = () => {
     window.location.replace(KAKAO_AUTH_URL);
@@ -75,7 +79,7 @@ const LoginWrap = styled.div`
   background-color: rgba(0, 0, 0, 0.4);
 `;
 
-const LoginContent = styled.div`
+const LoginContent = styled.div<{ animation: boolean }>`
   position: relative;
   display: flex;
   flex-direction: column;
